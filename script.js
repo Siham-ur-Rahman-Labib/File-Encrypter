@@ -10,12 +10,14 @@ function encryptFile() {
   reader.onload = function(e) {
     const content = e.target.result;
 
-    // Real AES encryption using CryptoJS
+    // Encrypt content with AES using CryptoJS
     const encrypted = CryptoJS.AES.encrypt(content, password).toString();
 
+    // Create a downloadable blob with encrypted content
     const blob = new Blob([encrypted], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
 
+    // Show download link
     const downloadLink = document.getElementById('downloadLink');
     downloadLink.href = url;
     downloadLink.style.display = 'block';

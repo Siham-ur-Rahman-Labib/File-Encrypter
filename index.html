@@ -8,10 +8,16 @@
 <body>
   <div class="container">
     <h1>🛡️ Text File Encryptor</h1>
+
     <input type="file" id="fileInput" accept=".txt" />
     <input type="password" id="password" placeholder="Enter password 🔑" />
     <button onclick="encryptFile()">Encrypt & Download</button>
+
     <a id="downloadLink" style="display: none;" download="encrypted.txt">⬇️ Download Encrypted File</a>
+
+    <p class="decrypt-text">
+      Already encrypted? <a href="decrypt.html">Decrypt...</a>
+    </p>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>

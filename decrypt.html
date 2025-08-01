@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🔓 Decrypt File</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🔓 Decrypt Text File</h1>
+
+    <input type="file" id="decryptFileInput" accept=".txt" />
+    <input type="password" id="decryptPassword" placeholder="Enter decryption password 🔑" />
+    <button onclick="decryptFile()">Decrypt File</button>
+
+    <textarea id="decryptedOutput" readonly placeholder="Decrypted text will appear here..."></textarea>
+
+    <p class="decrypt-text">
+      Wanna encrypt instead? <a href="index.html">Go back 🔐</a>
+    </p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script>
+    function decryptFile() {
+      const fileInput = document.getElementById('decryptFileInput');
+      const password = document.getElementById('decryptPassword').value;
+      const output = document.getElementById('decryptedOutput');
+      const file = fileInput.files[0];
+
+      if (!file) return alert("Please upload the encrypted file!");
+      if (!password) return alert("Please enter the decryption password!");
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const encryptedText = e.target.result;
+
+          const bytes = CryptoJS.AES.decrypt(encryptedText, password);
+          const decrypted = bytes.toString(CryptoJS.enc.Utf8);
+
+          if (!decrypted) {
+            output.value = "❌ Decryption failed! Wrong password or corrupt file.";
+            return;
+          }
+
+          output.value = decrypted;
+        } catch (err) {
+          output.value = "⚠️ Error during decryption.";
+        }
+      };
+
+      reader.readAsText(file);
+    }
+  </script>
+</body>
+</html>

@@ -50,4 +50,34 @@ a {
   color: #0ff;
   margin-top: 10px;
   display: block;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.decrypt-text {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.decrypt-text a {
+  color: #00f0ff;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+textarea {
+  width: 90%;
+  height: 150px;
+  margin-top: 15px;
+  background: #222;
+  color: #0ff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 1rem;
 }
