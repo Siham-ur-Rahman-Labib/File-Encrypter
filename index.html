@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🔥 File Encryptor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🛡️ Text File Encryptor</h1>
+    <input type="file" id="fileInput" accept=".txt" />
+    <input type="password" id="password" placeholder="Enter password 🔑" />
+    <button onclick="encryptFile()">Encrypt & Download</button>
+    <a id="downloadLink" style="display: none;" download="encrypted.txt">⬇️ Download Encrypted File</a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
